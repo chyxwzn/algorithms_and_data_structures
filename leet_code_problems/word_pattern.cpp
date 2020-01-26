@@ -23,6 +23,7 @@
 #include <sstream>
 #include <unordered_map>
 #include <unordered_set>
+#include <iterator>
 
 bool match_pattern(const std::string& str, const std::string& pattern)
 {
@@ -36,7 +37,7 @@ bool match_pattern(const std::string& str, const std::string& pattern)
 
     std::unordered_map<char, std::string> map;
     std::unordered_set<std::string> set;
-    for (int i = 0; i < pattern.size(); ++i) {
+    for (size_t i = 0; i < pattern.size(); ++i) {
         if (map.find(pattern[i]) != map.end()) {
             // pattern is already mapped to some other string.
             if (words[i] != map[pattern[i]]) {
